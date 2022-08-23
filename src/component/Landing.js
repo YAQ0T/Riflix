@@ -16,17 +16,21 @@ export default class Landing extends Component {
 
   render() {
     return (
-      <div className="users">
-        {this.state.users.map((u) => (
-          <Link to="/Catalog">
-            <div
-              className="user"
-              style={{ backgroundColor: u.backGroundColor }}
-            >
-              <div className="userName"> {u.name}</div>
-            </div>
-          </Link>
-        ))}
+      <div>
+        <div className="title">Landing</div>
+
+        <div className="users">
+          {this.state.users.map((u) => (
+            <Link to="/Catalog">
+              <div
+                className="user"
+                style={{ backgroundColor: u.backGroundColor }}
+              >
+                <div className="userName"> {u.name}</div>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     );
   }

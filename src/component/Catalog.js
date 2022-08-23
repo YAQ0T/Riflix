@@ -102,6 +102,7 @@ export default class Catalog extends Component {
       <div className="catalog">
         <div className="header">
           <div className="title">Catalog</div>
+
           <div className="budget">{this.state.budget}$</div>
         </div>
         <div className="rentedMovies">

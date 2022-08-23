@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import React, { Component } from "react";
 import Landing from "./component/Landing";
 import Catalog from "./component/Catalog";
-import Home from "./component/Home";
 import MovieDetail from "./component/MovieDetail";
 export default class App extends Component {
   render() {
