@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+html {
+  background-color: #141414;
+}
+.App {
+  text-align: center;
+  background-color: #141414;
+  height: 100vh;
+}
+.title {
+  padding-top: 2%;
+  font-size: 25px;
+  color: red;
+  justify-self: start;
+  padding-left: 2%;
+}
+
+.users {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 5%;
+  margin-left: 2.3%;
+  height: 150px;
+}
+.user {
+  width: 80%;
+  height: 100%;
+  border-radius: 25px;
+
+  display: grid;
+
+  justify-content: center;
+  align-content: center;
+}
+.userName {
+  font-size: xx-large;
+}
+a:link,
+a:visited {
+  color: black;
+  font-weight: bold;
+
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.budget {
+  color: white;
+  justify-self: end;
+  padding-top: 2.45%;
+  padding-right: 3%;
+}
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.searchBar {
+  display: grid;
+  justify-self: start;
+  padding-left: 1.2%;
+}
+.search {
+  background-color: black;
+  margin-top: 3%;
+  width: 80%;
+  height: 4vh;
+  border-radius: 5px;
+}
+.movies {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 7%;
+  margin-right: 5%;
+  width: 100%;
+  margin-left: 5%;
+}
+.movie {
+  color: white;
+  margin-bottom: 20%;
+}
+img {
+  min-width: 30%;
+
+  max-width: 100%;
+  min-height: 35vw;
+  max-height: 50vw;
+}
+.add-remove {
+  background-color: #141414;
+  padding: 0;
+  border: none;
+}
+.add-remove :hover {
+  transform: scale(
+    1.01
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  cursor: pointer;
+}
+.add-remove :active {
+  transform: scale(
+    0.9
+  ); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+.rented {
+  opacity: 20%;
+}
+
+.movieInfo {
+  display: grid;
+  background-color: #555555;
+  color: white;
+  border: 2px solid #555555;
+  padding: 5px 7px;
+  justify-content: center;
+  align-content: center;
+  justify-self: start;
+
+  cursor: pointer;
+  width: 1%;
+
+  min-height: 35vw;
+  max-height: 30vw;
+}
+
+.movieInfo:hover {
+  background-color: white;
+  color: black;
+}
+.moviePlusInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.movieInfo > h3 {
+  transform: rotate(-90deg);
+}
+.search {
+  color: aliceblue;
+}
+a:link,
+a:visited {
+  padding: 0;
+}
