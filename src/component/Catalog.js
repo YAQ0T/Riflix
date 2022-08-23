@@ -7,6 +7,7 @@ export default class Catalog extends Component {
   constructor() {
     super();
     this.state = {
+      movieIdPressed: null,
       searchInput: "",
       budget: 10000,
       newCatalogData: [],
@@ -59,6 +60,7 @@ export default class Catalog extends Component {
       ],
     };
   }
+
   rentMovie = (id) => {
     let catalogData = [...this.state.catalogData];
     let budget = this.state.budget;
@@ -92,8 +94,8 @@ export default class Catalog extends Component {
       newCatalogData: searchedMovie,
     });
   };
-  linkTo = () => {
-    <Link to="/"></Link>;
+  sendState = () => {
+    this.props.getState(this.state);
   };
   render() {
     return (
@@ -115,9 +117,20 @@ export default class Catalog extends Component {
                     img={m.img}
                     rentMovie={this.rentMovie}
                   />
-                  <button className="movieInfo">
-                    <h3>Info</h3>
-                  </button>
+                  <Link
+                    to="/MovieDetail"
+                    state={[
+                      m.id.toString(),
+                      m.title,
+                      m.img,
+                      m.year,
+                      m.descrShort,
+                    ]}
+                  >
+                    <button className="movieInfo" onClick={this.sendState}>
+                      <h3>Info</h3>
+                    </button>
+                  </Link>
                 </div>
               ) : null;
             })}
@@ -142,8 +155,18 @@ export default class Catalog extends Component {
                       img={m.img}
                       rentMovie={this.rentMovie}
                     />
-                    <Link to={{ pathname: "/MovieDetail", state: "hi" }}>
-                      <button className="movieInfo">
+
+                    <Link
+                      to="/MovieDetail"
+                      state={[
+                        m.id.toString(),
+                        m.title,
+                        m.img,
+                        m.year,
+                        m.descrShort,
+                      ]}
+                    >
+                      <button className="movieInfo" id={m.id}>
                         <h3>Info</h3>
                       </button>
                     </Link>
@@ -159,9 +182,20 @@ export default class Catalog extends Component {
                       img={m.img}
                       rentMovie={this.rentMovie}
                     />
-                    <button className="movieInfo">
-                      <h3>Info</h3>
-                    </button>
+                    <Link
+                      to="/MovieDetail"
+                      state={[
+                        m.id.toString(),
+                        m.title,
+                        m.img,
+                        m.year,
+                        m.descrShort,
+                      ]}
+                    >
+                      <button className="movieInfo" id={m.id}>
+                        <h3>Info</h3>
+                      </button>
+                    </Link>
                   </div>
                 );
               })}

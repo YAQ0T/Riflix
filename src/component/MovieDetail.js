@@ -1,16 +1,18 @@
 import React, { Component } from "react";
+import Catalog from "./Catalog";
+import { useLocation, Link } from "react-router-dom";
 
-export default class MovieDetail extends Component {
-  render(props) {
-    console.log(props.location.state);
-    return <h1>sad</h1>;
-    // return <div>{this.props.match}</div>;
-  }
-}
+const MovieDetail = (props) => {
+  const location = useLocation();
 
-{
-  /* <Route
-path="/directory/:fentities/:wizardName"
-render={({ match }) => <Fentity match={match} state={state} />}
-/> */
-}
+  return (
+    <div className="container">
+      <div className="title">{location.state[1]}</div>
+      <img src={location.state[2]} />
+      <div className="description" style={{ color: "white" }}>
+        {location.state[4]}
+      </div>
+    </div>
+  );
+};
+export default MovieDetail;
