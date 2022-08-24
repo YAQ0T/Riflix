@@ -10,6 +10,14 @@ export default class App extends Component {
     return (
       <div className="App">
         <BrowserRouter>
+          <div className="links">
+            <Link to="/">
+              <h3 style={{ color: "red" }}>Landing </h3>
+            </Link>
+            <Link to="/Catalog">
+              <h3 style={{ color: "red" }}> Catalog</h3>
+            </Link>
+          </div>
           <Routes>
             <Route path="/" exact element={<Landing />}></Route>
             <Route

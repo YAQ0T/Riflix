@@ -97,6 +97,26 @@ export default class Catalog extends Component {
   sendState = () => {
     this.props.getState(this.state);
   };
+  runCatalogData = (m, className) => {
+    return (
+      <div className={className}>
+        <Rent
+          id={m.id}
+          isRented={m.isRented}
+          img={m.img}
+          rentMovie={this.rentMovie}
+        />
+        <Link
+          to="/MovieDetail"
+          state={[m.id.toString(), m.title, m.img, m.year, m.descrShort]}
+        >
+          <button className="movieInfo" id={m.id}>
+            <h3>Info</h3>
+          </button>
+        </Link>
+      </div>
+    );
+  };
   render() {
     return (
       <div className="catalog">
@@ -110,30 +130,9 @@ export default class Catalog extends Component {
 
           <div className="movies">
             {this.state.catalogData.map((m) => {
-              return m.isRented ? (
-                <div className="moviePlusInfo">
-                  <Rent
-                    id={m.id}
-                    isRented={m.isRented}
-                    img={m.img}
-                    rentMovie={this.rentMovie}
-                  />
-                  <Link
-                    to="/MovieDetail"
-                    state={[
-                      m.id.toString(),
-                      m.title,
-                      m.img,
-                      m.year,
-                      m.descrShort,
-                    ]}
-                  >
-                    <button className="movieInfo" onClick={this.sendState}>
-                      <h3>Info</h3>
-                    </button>
-                  </Link>
-                </div>
-              ) : null;
+              return m.isRented
+                ? this.runCatalogData(m, "moviePlusInfo")
+                : null;
             })}
           </div>
         </div>
@@ -148,57 +147,10 @@ export default class Catalog extends Component {
         <div className="movies">
           {this.state.newCatalogData == ""
             ? this.state.catalogData.map((m) => {
-                return (
-                  <div className="moviePlusInfo">
-                    <Rent
-                      id={m.id}
-                      isRented={m.isRented}
-                      img={m.img}
-                      rentMovie={this.rentMovie}
-                    />
-
-                    <Link
-                      to="/MovieDetail"
-                      state={[
-                        m.id.toString(),
-                        m.title,
-                        m.img,
-                        m.year,
-                        m.descrShort,
-                      ]}
-                    >
-                      <button className="movieInfo" id={m.id}>
-                        <h3>Info</h3>
-                      </button>
-                    </Link>
-                  </div>
-                );
+                return this.runCatalogData(m, "moviePlusInfo");
               })
             : this.state.newCatalogData.map((m) => {
-                return (
-                  <div className="moviePlusInfo">
-                    <Rent
-                      id={m.id}
-                      isRented={m.isRented}
-                      img={m.img}
-                      rentMovie={this.rentMovie}
-                    />
-                    <Link
-                      to="/MovieDetail"
-                      state={[
-                        m.id.toString(),
-                        m.title,
-                        m.img,
-                        m.year,
-                        m.descrShort,
-                      ]}
-                    >
-                      <button className="movieInfo" id={m.id}>
-                        <h3>Info</h3>
-                      </button>
-                    </Link>
-                  </div>
-                );
+                return this.runCatalogData(m, "moviePlusInfo");
               })}
         </div>
       </div>
